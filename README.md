@@ -55,14 +55,14 @@ Environment Scanner ──> Swarm Bench (chain-linked ledger) ──> Staff obse
 
 ## The results so far (live numbers, updated daily)
 
-**Efficiency score: 44/100 — MIXED (day 1, maturity-dampened; the swarm has to earn the climb)**
+![Fleet metrics](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FMAYA-Platform%2Fswarm-office%2Fmain%2Fdata%2Ffleet-metrics.json&query=%24.efficiency_score&label=efficiency%20score&suffix=%2F100&color=e6a817)
+![Verified pass rate](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FMAYA-Platform%2Fswarm-office%2Fmain%2Fdata%2Ffleet-metrics.json&query=%24.verified_pass_pct&label=world-verified%20pass&suffix=%25&color=4caf7d)
+![Artifacts](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FMAYA-Platform%2Fswarm-office%2Fmain%2Fdata%2Ffleet-metrics.json&query=%24.artifacts_total&label=artifacts&color=e6a817)
 
-- 15+ chain-linked artifacts, 100% world-verified pass rate (FAIL artifacts blocked and visible)
-- 6 organic initiatives discovered by the scanner and assigned by role-fit
-- Staff picked up work unprompted: a strategy artifact (dependency-ordering critique) filed within the first day
-- Value log tracks which artifacts changed something real — 4 logged on day one
-
-Full reports: [`reports/`](reports/)
+These badges read `data/fleet-metrics.json`, a sanitized snapshot exported by the office
+itself every morning (artifact count, verdict rate, efficiency score band, top artifact of
+the day). **Live page: [`docs/fleet.html`](docs/fleet.html)** renders the full daily
+snapshot, per-agent contribution, and the top artifact.
 
 ## The surfaces
 
