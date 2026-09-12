@@ -51,6 +51,7 @@ Environment Scanner ──> Swarm Bench (chain-linked ledger) ──> Staff obse
 | `doctrine_hitrate.py` | 4-tier doctrine & skills classification (load-bearing → likely-outdated) |
 | `desktop_scan.py` | Read-only duplicate/clutter scanning for founder review |
 | `swarm_efficiency.py` | The honesty system: efficiency score + value log |
+| `fleet_metrics_export.py` | Exports the sanitized daily fleet snapshot the README badges and live page render |
 | `founder_meeting.py` | Emails the founder only when real decisions have piled up |
 
 ## The results so far (live numbers, updated daily)

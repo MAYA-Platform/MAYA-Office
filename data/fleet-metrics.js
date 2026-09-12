@@ -26,9 +26,9 @@ var FLEET_METRICS = {
   "keira": 1
  },
  "top_artifact": {
-  "title": "Context packs: precompressed card context for kanban workers",
-  "agent": "chief",
-  "type": "tool",
+  "title": "Founder Review Queue three-ledger stratification shipped",
+  "agent": "plumb",
+  "type": "fix",
   "built_on": false
  }
 };
