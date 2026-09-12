@@ -1,0 +1,4 @@
+# Disable Jekyll processing on GitHub Pages.
+# Jekyll treats a data/ directory as site-data source and does not copy it to
+# the published output, which would hide data/fleet-metrics.json. This file
+# makes Pages serve the repository files as-is.
