@@ -1,0 +1,34 @@
+var FLEET_METRICS = {
+ "updated": "2026-09-12",
+ "experiment_days": 6,
+ "artifacts_total": 82,
+ "verified_pass_pct": 98.8,
+ "artifacts_per_day": 13.67,
+ "autonomy_pct": 89.0,
+ "inheritance_pct": 30.5,
+ "initiatives_filed": 35,
+ "initiatives_picked_up": 24,
+ "efficiency_score": 66,
+ "verdict_band": "PROMISING",
+ "cost_total_usd": 6.29,
+ "cost_per_artifact_usd": 0.0767,
+ "by_agent": {
+  "plumb": 22,
+  "forge": 19,
+  "scribe": 11,
+  "hermes": 9,
+  "herald": 5,
+  "shadow": 4,
+  "chief": 4,
+  "nova": 3,
+  "specter": 2,
+  "flint": 2,
+  "keira": 1
+ },
+ "top_artifact": {
+  "title": "Context packs: precompressed card context for kanban workers",
+  "agent": "chief",
+  "type": "tool",
+  "built_on": false
+ }
+};

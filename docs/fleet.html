@@ -156,6 +156,7 @@
   </footer>
 </div>
 
+<script src="data/fleet-metrics.js"></script>
 <script>
 function bandClass(b) { return "band band-" + (b || "MIXED"); }
 
@@ -224,10 +225,11 @@ fetch("data/fleet-metrics.json", { cache: "no-store" })
     return r.json();
   })
   .then(render)
-  .catch(function(e) {
+  .catch(function() {
+    // file:// fallback: the exporter also writes a JS twin loaded below
+    if (typeof FLEET_METRICS !== "undefined") { render(FLEET_METRICS); return; }
     document.getElementById("content").innerHTML =
-      '<div class="error">Fleet metrics not available yet (' + e.message +
-      '). The daily export has not run for this snapshot.</div>';
+      '<div class="error">Fleet metrics not available yet. The daily export has not run for this snapshot.</div>';
   });
 </script>
 </body>
