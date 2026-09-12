@@ -2,8 +2,9 @@
 """Fleet Metrics Exporter - sanitized daily fleet stats for the public repo.
 
 Reads the office's efficiency snapshot and bench ledger, writes a sanitized
-JSON (+ JS twin for file:// viewing) to data/fleet-metrics.json. The README
-badge and docs/fleet.html render it.
+JSON (+ JS twin for file:// viewing) to docs/data/fleet-metrics.json. The README
+badge and docs/fleet.html render it. Files live under docs/ because the GitHub
+Pages site publishes the docs/ directory only.
 
 Paths are configurable via environment so the script carries no machine
 identifiers:
@@ -33,7 +34,7 @@ BENCH = Path(os.environ.get("SWARM_BENCH_DIR", "./bench"))
 LEDGER = BENCH / "LEDGER.jsonl"
 LATEST = BENCH / "efficiency" / "efficiency-latest.json"
 REPO = Path(os.environ.get("SWARM_OFFICE_REPO", "."))
-OUT = REPO / "data" / "fleet-metrics.json"
+OUT = REPO / "docs" / "data" / "fleet-metrics.json"
 
 # Identifier / machine-path tells that must never reach the public repo
 SCRUB_TELLS = (
@@ -132,7 +133,7 @@ def export():
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=1) + "\n", encoding="utf-8")
     # JS twin for file:// viewing (fetch is CORS-blocked on file://; script tags are not)
-    js = REPO / "data" / "fleet-metrics.js"
+    js = REPO / "docs" / "data" / "fleet-metrics.js"
     js.write_text("var FLEET_METRICS = " + json.dumps(payload, indent=1) + ";\n",
                   encoding="utf-8")
     print(f"exported: {OUT}")
@@ -148,7 +149,7 @@ def push():
     if not r.stdout.strip():
         print("repo clean, nothing to push")
         return 0
-    subprocess.run(["git", "add", "data/fleet-metrics.json", "data/fleet-metrics.js"],
+    subprocess.run(["git", "add", "docs/data/fleet-metrics.json", "docs/data/fleet-metrics.js"],
                    cwd=REPO, check=True)
     msg = "fleet metrics: daily sanitized export"
     subprocess.run(["git", "commit", "-m", msg], cwd=REPO, capture_output=True, text=True)
