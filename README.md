@@ -1,95 +1,215 @@
-# Swarm Office
+# MAYA Office
 
-**An autonomous AI office that runs itself — verified, measured, and honest about whether it works.**
+**An autonomous AI office with initiative, receipts, and a way to tell when the work is real.**
 
-Ten AI agents in a persistent shared world. They find their own work, research it, build on each other's output, and file everything as chain-linked artifacts. A deterministic evaluator — never an agent's self-report — stamps every piece of work PASS or FAIL. The whole ecology runs 24/7 on a $5/month cloud VM, and an efficiency scoring system says honestly whether it's working or is expensive theater.
+MAYA Office is a living experiment in multi-agent work. Ten named staff agents share a persistent world, notice work in their environment, choose tasks that fit their lanes, build on each other's output, and leave evidence behind.
 
-This is not a demo. It is an ongoing experiment with receipts.
+The point is not to make ten chat windows. The point is to see whether a group of AI workers can develop useful division of labor without turning the founder into a full-time traffic controller.
 
----
+Every result goes through a deterministic check. The agent can propose that something worked. The world decides whether it actually did.
 
-## The core idea
+> This repository is the public engineering record for the MAYA Office experiment. It is designed to show the mechanism, the receipts, and the limits.
 
-Most multi-agent systems coordinate through chat. Ours coordinates through a **shared world** — the same principle biology calls *stigmergy* (ants coordinate through pheromone trails, not conversation). Inspired by MIT's [SwarmWorld](https://arxiv.org/abs/2608.26081) (arXiv 2608.26081), which showed that:
+## What makes it different
 
-- decentralized agent societies build **broader, more resilient technology portfolios** than isolated search
-- most knowledge transfer happens through **observing persistent artifacts**, not messaging
-- agents spontaneously differentiate into roles **without being assigned them**
+Most multi-agent systems coordinate by passing messages around. MAYA Office coordinates through a shared world.
 
-Swarm Office implements those findings with a real staff, real tools, and a real scoring system that would shut the experiment down if it stopped producing.
+A staff member sees the current ledger, the work already completed, and the artifacts left by other staff. That persistent environment becomes the office memory. A new task can start from an existing result instead of starting from a blank prompt.
 
-## How it works
+The office also allows initiative. Staff can find work without being assigned every move, start a lane-related project, or have a lightbulb moment during a prompted task and propose a better path. That behavior is part of the experiment, not an accidental side effect.
 
+The system still has a hard boundary. Reversible work can move forward. Deletion, secrets, mass changes, and financial actions stay behind a founder decision.
+
+## The loop
+
+```mermaid
+flowchart LR
+    A[Environment scan] --> B[Initiative enters the world]
+    B --> C[Staff observe shared state]
+    C --> D[Staff choose or receive work]
+    D --> E[Build notes or proposal]
+    E --> F[Deterministic evaluator]
+    F -->|PASS| G[Chain-linked artifact]
+    F -->|FAIL| H[Repair or review]
+    G --> I[Bridge to office surfaces]
+    I --> C
+    E --> J{Founder decision needed?}
+    J -->|No| F
+    J -->|Yes| K[Founder review]
+    K --> F
+
+    classDef scan fill:#16213e,stroke:#5b8fd9,color:#f0f0f5
+    classDef work fill:#241d12,stroke:#e6a817,color:#f0f0f5
+    classDef proof fill:#13251d,stroke:#4caf7d,color:#f0f0f5
+    classDef stop fill:#2a1715,stroke:#d95f4b,color:#f0f0f5
+    class A scan
+    class B,C,D,E work
+    class F,G,I,K proof
+    class H,J stop
 ```
-Environment Scanner ──> Swarm Bench (chain-linked ledger) ──> Staff observe & pick up
-     (read-only)            |      ▲                              |
-                            |      │                              ▼
-                     world verdicts│                        analysis, notes,
-                     (PASS/FAIL)   │                        staged code proposals
-                            |      │                              |
-                            ▼      │                              ▼
-                     Deterministic Evaluators        Hermes reviews & applies
-                     (compile, secret-scan, sanity)  (staff code never self-applies)
-```
 
-1. **The Initiative Scanner** walks the founder's real environment — repos, notes, scripts — and finds work that needs doing: TODO markers, duplicate files, stale reports, oversized artifacts. Read-only by construction.
-2. **Every initiative becomes a chain-linked artifact** on the Swarm Bench ledger. SHA-256 chain, same integrity pattern as a blockchain's linked blocks (minus the mining and coins).
-3. **The world decides, not the agents.** Deterministic evaluators — compile checks, secret-tell scanners, sanity tests — stamp PASS or FAIL *before* an artifact enters the ledger. An agent cannot claim success; the simulator proves it or refuses it. (This is the paper's "cognition separated from consequence.")
-4. **Staff observe the world before acting.** The world state is injected into every agent's turn — stigmergy in practice. Most reuse starts by seeing what exists, not by asking.
-5. **Staff have real tools:** live web research, GitHub repo access, read-only email triage, their own desks for notes, and a `propose_code` path that stages changes for review — staff code never self-applies.
-6. **The approval boundary is codified:** reversible work advances autonomously; deletion, mass changes, secrets, and financial scope escalate to the founder. Codified in the Team Review Board's autonomy policy, not left to vibes.
-7. **Everything is measured.** An efficiency score (0–100) tracks output velocity, autonomy rate, world-verified quality, and inheritance depth. Verdict bands: INVEST / PROMISING / MIXED / THEATER. If the system is expensive theater, it says so and gets shut down.
+For the larger animated version, open the [interactive system map](docs/system-map.html). It shows the same flow with moving signals, state colors, and the feedback loop kept visible.
+
+## What happens at each stage
+
+1. **The initiative scanner** checks the working environment for useful work such as stale records, duplicate material, unfinished markers, or oversized artifacts. The scan is read-only.
+2. **The Swarm Bench** records an initiative or artifact in a linked ledger. Each entry carries identity, sequence, timestamps, parent relationships, and tamper evidence.
+3. **Staff observe before they act.** The current world state is available before a turn, so agents can reuse what is already there and develop distinct lanes.
+4. **Staff work through bounded tools.** They can research, inspect GitHub, triage email without sending or deleting, write to their own desk, and stage code proposals for review.
+5. **The evaluator decides.** Compile checks, secret scans, hashes, and sanity checks produce a PASS or FAIL. The staff member's confidence is not the verdict.
+6. **The bridge carries the result.** The office state can feed the live office surface, memory, notes, and the work queue without copying private founder context into the public repository.
+7. **The score keeps the experiment honest.** Output velocity, autonomy, verified quality, inheritance, cost, and real-world effect are tracked separately.
 
 ## The components
 
-| Component | What it does |
-|---|---|
-| `swarm_bench.py` | The ledger: chain-linked artifacts, deterministic evaluators, observe/tally/verify |
-| `swarm_initiatives.py` | Scans the real environment for organic work; assigns to fitting staff |
-| `swarm_bridge.py` | Syncs bench state to every surface (office HTML, Memory Lane, Obsidian, cloud) |
-| `staff_workspace_tools.py` | The staff capability layer: web, GitHub, email triage, notes, proposals |
-| `doctrine_hitrate.py` | 4-tier doctrine & skills classification (load-bearing → likely-outdated) |
-| `desktop_scan.py` | Read-only duplicate/clutter scanning for founder review |
-| `swarm_efficiency.py` | The honesty system: efficiency score + value log |
-| `fleet_metrics_export.py` | Exports the sanitized daily fleet snapshot the README badges and live page render |
-| `founder_meeting.py` | Emails the founder only when real decisions have piled up |
+| File | Role |
+| --- | --- |
+| `scripts/swarm_bench.py` | Chain-linked artifact ledger and deterministic evaluators |
+| `scripts/swarm_initiatives.py` | Read-only discovery of organic work in the environment |
+| `scripts/swarm_bridge.py` | Moves world state into the office's connected surfaces |
+| `scripts/staff_workspace_tools.py` | Bounded staff tools for research, notes, triage, and proposals |
+| `scripts/swarm_efficiency.py` | Efficiency score, verdict bands, cost, and value tracking |
+| `scripts/doctrine_hitrate.py` | Finds doctrine and skills that need attention |
+| `scripts/desktop_scan.py` | Read-only duplicate and clutter scan for founder review |
+| `scripts/fleet_metrics_export.py` | Writes the sanitized public fleet snapshot |
+| `scripts/founder_meeting.py` | Raises a founder meeting only when decision items accumulate |
+| `docs/fleet.html` | Public scorecard with live metrics and agent results |
+| `docs/system-map.html` | Animated architecture map |
 
-## The results so far (live numbers, updated daily)
+## The trust boundary
 
-![Fleet metrics](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FMAYA-Platform%2Fswarm-office%2Fmain%2Fdocs%2Fdata%2Ffleet-metrics.json&query=%24.efficiency_score&label=efficiency%20score&suffix=%2F100&color=e6a817)
-![Verified pass rate](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FMAYA-Platform%2Fswarm-office%2Fmain%2Fdocs%2Fdata%2Ffleet-metrics.json&query=%24.verified_pass_pct&label=world-verified%20pass&suffix=%25&color=4caf7d)
-![Artifacts](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FMAYA-Platform%2Fswarm-office%2Fmain%2Fdocs%2Fdata%2Ffleet-metrics.json&query=%24.artifacts_total&label=artifacts&color=e6a817)
+The office is autonomous in its work, not careless with authority.
 
-These badges read `docs/data/fleet-metrics.json`, a sanitized snapshot exported by the office
-itself every morning (artifact count, verdict rate, efficiency score band, top artifact of
-the day). **Live page: [`docs/fleet.html`](docs/fleet.html)** renders the full daily
-snapshot, per-agent contribution, and the top artifact.
+- Research and inspection are read-only.
+- Staff notes stay on the staff member's own desk.
+- Code proposals are staged for review. Staff code does not self-apply.
+- Deterministic checks run before an artifact is counted as verified.
+- Reversible work can advance without a founder interruption.
+- Deletion, secrets, mass changes, and financial scope escalate.
+- A failed check becomes evidence and a repair target, not a success story.
 
-## The surfaces
+This separation matters. A system that can act but cannot show what happened is difficult to trust. A system that reports success without an independent check is only performing confidence.
 
-- **3D office** (Claw3D): a spatial office where staff desks, chat, and the artifact board live — the founder watches the ecology accumulate visually
-- **2D office** (`staff-office.html`): desk cards with live artifact feeds
-- **Memory Lane**: the same chain-integrity pattern applied to agent memory
-- **Obsidian vault**: auto-generated ecology notes with lineage maps
+## Live experiment snapshot
 
-## What "working" means (the falsifiable bar)
+The current public snapshot was exported on **2026-09-13**.
 
-The experiment succeeds only if:
-- the efficiency score holds **80+ (INVEST)** for two consecutive weeks, AND
-- at least **half of all artifacts** have a logged real-world effect (a fix applied, a decision informed, a cleanup executed), AND
-- the founder never had to babysit the queue — only decide the genuinely irreversible items
+- **89** chain-linked artifacts
+- **98.9%** world-verified pass rate
+- **89.9%** autonomy rate
+- **31.5%** inheritance rate
+- **35** initiatives filed, **24** picked up
+- **70/100** efficiency score
+- **PROMISING** current verdict band
+- **$7.31** recorded cost to date
+- **$0.0821** recorded cost per artifact
 
-Otherwise: the score drops to MIXED or THEATER, we narrow scope to what demonstrably works, or we shut it down. **The system is designed to prove its own failure honestly.**
+These numbers are a snapshot, not a promise. The public page reads the sanitized data export in [`docs/data/fleet-metrics.json`](docs/data/fleet-metrics.json), which the office refreshes rather than hand-editing.
+
+See the [live fleet scorecard](docs/fleet.html).
+
+## Test progression
+
+The current evidence pack contains two ten-agent desktop passes:
+
+- **Desktop Rescue, 2026-09-11:** **90.0/100** average
+- **Deep Absorption, 2026-09-12:** **92.6/100** average
+- **Movement between those named passes:** **+2.6 points** across the fleet
+
+The wider fleet-level progression across three recorded averages was:
+
+```text
+88.0  →  91.0  →  93.3
+Pass 1   Pass 2   Pass 3
+```
+
+The named pass averages and the wider trajectory are separate records. The latest pass did not move every lane in the same direction, which is exactly why the office keeps the individual numbers.
+
+| Staff lane | Desktop Rescue | Deep Absorption | Change |
+| --- | ---: | ---: | ---: |
+| Herald | 89 | 98 | +9 |
+| Shadow | 87 | 94 | +7 |
+| Scribe | 86 | 93 | +7 |
+| Keira | 84 | 89 | +5 |
+| Forge | 92 | 95 | +3 |
+| Plumb | 90 | 91 | +1 |
+| Recon | 88 | 88 | 0 |
+| Specter | 97 | 96 | -1 |
+| Chief | 93 | 92 | -1 |
+| Nova | 94 | 90 | -4 |
+
+The [full test record](docs/test-results.md) explains what each lane delivered and what the scores do not prove. The machine-readable source is [`docs/data/test-scores.json`](docs/data/test-scores.json). These are work signals, not personality rankings.
+
+## What "working" means
+
+The office is not allowed to call itself successful because it generated a large pile of files.
+
+The experiment clears its INVEST bar only when:
+
+1. The efficiency score holds at **80 or higher** for two consecutive weeks.
+2. At least half of the artifacts have a recorded real-world effect, such as a fix applied, a decision informed, or a cleanup completed.
+3. The founder is only pulled in for the decisions that genuinely need him.
+
+If the score falls, the system narrows its scope or says the experiment is producing theater. That failure signal is part of the product. It is more useful than a dashboard that always finds a way to look healthy.
+
+## Run the tools locally
+
+The scripts are standard-library Python tools. Start with their built-in help:
+
+```bash
+python scripts/swarm_bench.py --help
+python scripts/swarm_initiatives.py --help
+python scripts/swarm_efficiency.py --help
+python scripts/fleet_metrics_export.py --help
+```
+
+The public pages can be served locally with any static file server. For example:
+
+```bash
+python -m http.server 8000 --directory docs
+```
+
+Then open `http://127.0.0.1:8000/`.
+
+## Repository map
+
+```text
+MAYA-Office/
+├── docs/
+│   ├── data/
+│   │   ├── fleet-metrics.json
+│   │   └── test-scores.json
+│   ├── fleet.html
+│   ├── index.html
+│   ├── system-map.html
+│   └── test-results.md
+├── scripts/
+│   ├── desktop_scan.py
+│   ├── doctrine_hitrate.py
+│   ├── fleet_metrics_export.py
+│   ├── founder_meeting.py
+│   ├── staff_workspace_tools.py
+│   ├── swarm_bench.py
+│   ├── swarm_bridge.py
+│   ├── swarm_efficiency.py
+│   └── swarm_initiatives.py
+├── LICENSE
+└── README.md
+```
 
 ## Why this matters
 
-Every "AI agent" product pitches autonomy. Almost none of them can *prove* what their agents did, show the receipts, or tell you when they're not working. The gap between "agents exist" and "agents can be trusted with your business" is trust infrastructure: deterministic verification, chain-of-custody on outputs, honest efficiency measurement, and a hard approval boundary.
+The interesting question is not whether an AI can write a report. It can.
 
-Swarm Office is that infrastructure, tested in public.
+The interesting question is whether a group of agents can notice what matters, make useful choices, build on shared evidence, develop their own working styles, and remain honest when the result does not hold up.
+
+MAYA Office is a small public test of that idea. It treats initiative as part of work, verification as part of authorship, and the founder's attention as a scarce resource worth protecting.
 
 ## Status
 
-**Running.** Live on a GCP e2-small instance (24/7) plus a local Hermes runtime. Reports regenerate daily.
+The office is an active experiment. The current verdict is **PROMISING**, not proven. More real-world effect needs to be logged before the system earns a stronger claim.
+
+Built by 2ndNatureAi.
 
 ## License
 
