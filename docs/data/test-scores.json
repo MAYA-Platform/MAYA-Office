@@ -3,58 +3,197 @@
   "scope": "Public-safe record of the two latest ten-agent passes, individual progression, and the wider fleet scoring trajectory.",
   "desktop_tests": [
     {
-      "name": "Desktop Rescue",
+      "name": "Desktop Readiness Pass",
       "date": "2026-09-11",
       "average_score": 90.0,
       "agents_tested": 10,
       "results": [
-        {"name":"specter","score":97,"verdict":"Security exposure closed"},
-        {"name":"nova","score":94,"verdict":"Stale metrics corrected"},
-        {"name":"chief","score":93,"verdict":"Live footgun disarmed"},
-        {"name":"forge","score":92,"verdict":"Dead app restored"},
-        {"name":"plumb","score":90,"verdict":"Dead shortcut revived"},
-        {"name":"herald","score":89,"verdict":"Open-items record reconciled"},
-        {"name":"recon","score":88,"verdict":"Tap-cap hypothesis tested"},
-        {"name":"shadow","score":87,"verdict":"Stale note dispositioned"},
-        {"name":"scribe","score":86,"verdict":"Record aligned with evidence"},
-        {"name":"keira","score":84,"verdict":"Public copy repaired"}
+        {
+          "name": "specter",
+          "score": 97,
+          "verdict": "Security exposure closed"
+        },
+        {
+          "name": "nova",
+          "score": 94,
+          "verdict": "Stale metrics corrected"
+        },
+        {
+          "name": "chief",
+          "score": 93,
+          "verdict": "Live footgun disarmed"
+        },
+        {
+          "name": "forge",
+          "score": 92,
+          "verdict": "Dead app restored"
+        },
+        {
+          "name": "plumb",
+          "score": 90,
+          "verdict": "Dead shortcut revived"
+        },
+        {
+          "name": "herald",
+          "score": 89,
+          "verdict": "Open-items record reconciled"
+        },
+        {
+          "name": "recon",
+          "score": 88,
+          "verdict": "Tap-cap hypothesis tested"
+        },
+        {
+          "name": "shadow",
+          "score": 87,
+          "verdict": "Stale note dispositioned"
+        },
+        {
+          "name": "scribe",
+          "score": 86,
+          "verdict": "Record aligned with evidence"
+        },
+        {
+          "name": "keira",
+          "score": 84,
+          "verdict": "Public copy repaired"
+        }
       ]
     },
     {
-      "name": "Deep Absorption",
+      "name": "Research Absorption Pass",
       "date": "2026-09-12",
       "average_score": 92.6,
       "agents_tested": 10,
       "results": [
-        {"name":"herald","score":98,"verdict":"Trust-calibration experiment reproduced"},
-        {"name":"specter","score":96,"verdict":"Security paper and results verified"},
-        {"name":"forge","score":95,"verdict":"Tests run and Pareto doctrine extracted"},
-        {"name":"shadow","score":94,"verdict":"Agent economics mapped to the office"},
-        {"name":"scribe","score":93,"verdict":"Memory roadmap rewritten by evidence"},
-        {"name":"chief","score":92,"verdict":"Escalation policy upgraded"},
-        {"name":"plumb","score":91,"verdict":"Safety finding absorbed"},
-        {"name":"nova","score":90,"verdict":"Design law created with gates"},
-        {"name":"keira","score":89,"verdict":"AI-labeling evidence captured"},
-        {"name":"recon","score":88,"verdict":"Two security patterns checked"}
+        {
+          "name": "herald",
+          "score": 98,
+          "verdict": "Trust-calibration experiment reproduced"
+        },
+        {
+          "name": "specter",
+          "score": 96,
+          "verdict": "Security paper and results verified"
+        },
+        {
+          "name": "forge",
+          "score": 95,
+          "verdict": "Tests run and Pareto doctrine extracted"
+        },
+        {
+          "name": "shadow",
+          "score": 94,
+          "verdict": "Agent economics mapped to the office"
+        },
+        {
+          "name": "scribe",
+          "score": 93,
+          "verdict": "Memory roadmap rewritten by evidence"
+        },
+        {
+          "name": "chief",
+          "score": 92,
+          "verdict": "Escalation policy upgraded"
+        },
+        {
+          "name": "plumb",
+          "score": 91,
+          "verdict": "Safety finding absorbed"
+        },
+        {
+          "name": "nova",
+          "score": 90,
+          "verdict": "Design law created with gates"
+        },
+        {
+          "name": "keira",
+          "score": 89,
+          "verdict": "AI-labeling evidence captured"
+        },
+        {
+          "name": "recon",
+          "score": 88,
+          "verdict": "Two security patterns checked"
+        }
       ]
     }
   ],
   "agent_progression": [
-    {"name":"herald","desktop_rescue":89,"deep_absorption":98,"delta":9},
-    {"name":"shadow","desktop_rescue":87,"deep_absorption":94,"delta":7},
-    {"name":"scribe","desktop_rescue":86,"deep_absorption":93,"delta":7},
-    {"name":"keira","desktop_rescue":84,"deep_absorption":89,"delta":5},
-    {"name":"forge","desktop_rescue":92,"deep_absorption":95,"delta":3},
-    {"name":"plumb","desktop_rescue":90,"deep_absorption":91,"delta":1},
-    {"name":"recon","desktop_rescue":88,"deep_absorption":88,"delta":0},
-    {"name":"specter","desktop_rescue":97,"deep_absorption":96,"delta":-1},
-    {"name":"chief","desktop_rescue":93,"deep_absorption":92,"delta":-1},
-    {"name":"nova","desktop_rescue":94,"deep_absorption":90,"delta":-4}
+    {
+      "name": "herald",
+      "delta": 9,
+      "desktop_readiness": 89,
+      "research_absorption": 98
+    },
+    {
+      "name": "shadow",
+      "delta": 7,
+      "desktop_readiness": 87,
+      "research_absorption": 94
+    },
+    {
+      "name": "scribe",
+      "delta": 7,
+      "desktop_readiness": 86,
+      "research_absorption": 93
+    },
+    {
+      "name": "keira",
+      "delta": 5,
+      "desktop_readiness": 84,
+      "research_absorption": 89
+    },
+    {
+      "name": "forge",
+      "delta": 3,
+      "desktop_readiness": 92,
+      "research_absorption": 95
+    },
+    {
+      "name": "plumb",
+      "delta": 1,
+      "desktop_readiness": 90,
+      "research_absorption": 91
+    },
+    {
+      "name": "recon",
+      "delta": 0,
+      "desktop_readiness": 88,
+      "research_absorption": 88
+    },
+    {
+      "name": "specter",
+      "delta": -1,
+      "desktop_readiness": 97,
+      "research_absorption": 96
+    },
+    {
+      "name": "chief",
+      "delta": -1,
+      "desktop_readiness": 93,
+      "research_absorption": 92
+    },
+    {
+      "name": "nova",
+      "delta": -4,
+      "desktop_readiness": 94,
+      "research_absorption": 90
+    }
   ],
   "fleet_progression": [
-    {"label":"Pass 1", "score":88.0},
-    {"label":"Pass 2", "score":91.0},
-    {"label":"Pass 3", "score":93.3}
+    {
+      "label": "Pass 1",
+      "score": 88.0
+    },
+    {
+      "label": "Pass 2",
+      "score": 91.0
+    },
+    {
+      "label": "Pass 3",
+      "score": 93.3
+    }
   ],
   "limits": [
     "The two named test averages are calculated from their ten recorded agent scores.",

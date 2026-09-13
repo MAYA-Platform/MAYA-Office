@@ -4,8 +4,8 @@
 
 The office has two useful ten-agent passes in the current public evidence pack.
 
-- **Desktop Rescue, 2026-09-11:** 90.0/100 average
-- **Deep Absorption, 2026-09-12:** 92.6/100 average
+- **Desktop Readiness Pass, 2026-09-11:** 90.0/100 average
+- **Research Absorption Pass, 2026-09-12:** 92.6/100 average
 - **Movement between named passes:** +2.6 points across the fleet
 - **Wider fleet trajectory:** 88.0 → 91.0 → 93.3 across three recorded averages
 
@@ -13,9 +13,9 @@ The named pass averages and the wider fleet trajectory are kept separate because
 
 ## Individual progression
 
-The arrows below show Desktop Rescue → Deep Absorption. The change is the difference between those two recorded scores.
+The arrows below show Desktop Readiness Pass → Research Absorption Pass. The change is the difference between those two recorded scores.
 
-| Staff lane | Desktop Rescue | Deep Absorption | Change |
+| Staff lane | Desktop Readiness Pass | Research Absorption Pass | Change |
 | --- | ---: | ---: | ---: |
 | Herald | 89 | 98 | +9 |
 | Shadow | 87 | 94 | +7 |
@@ -30,7 +30,7 @@ The arrows below show Desktop Rescue → Deep Absorption. The change is the diff
 
 A lower second score is not automatically a failure. It can mean the second task exposed a harder edge, the first score was generous, or the lane needs a correction. The point of running another pass is to find that out.
 
-## Desktop Rescue
+## Desktop Readiness Pass
 
 **Date:** 2026-09-11  
 **Agents tested:** 10  
@@ -49,7 +49,7 @@ Each staff lane received a real founder-desktop item to investigate. The work wa
 - **Scribe, 86.** Turned a raw founder record into an evidence-linked record.
 - **Keira, 84.** Repaired public-facing copy during the desktop pass.
 
-## Deep Absorption
+## Research Absorption Pass
 
 **Date:** 2026-09-12  
 **Agents tested:** 10  

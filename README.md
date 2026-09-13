@@ -8,6 +8,8 @@ The point is not to make ten chat windows. The point is to see whether a group o
 
 Every result goes through a deterministic check. The agent can propose that something worked. The world decides whether it actually did.
 
+The coordination model is inspired by the published SwarmWorld research paper ([arXiv:2608.26081](https://arxiv.org/abs/2608.26081)), which treats a shared environment as the coordination layer for agent work.
+
 > This repository is the public engineering record for the MAYA Office experiment. It is designed to show the mechanism, the receipts, and the limits.
 
 ## What makes it different
@@ -22,33 +24,11 @@ The system still has a hard boundary. Reversible work can move forward. Deletion
 
 ## The loop
 
-```mermaid
-flowchart LR
-    A[Environment scan] --> B[Initiative enters the world]
-    B --> C[Staff observe shared state]
-    C --> D[Staff choose or receive work]
-    D --> E[Build notes or proposal]
-    E --> F[Deterministic evaluator]
-    F -->|PASS| G[Chain-linked artifact]
-    F -->|FAIL| H[Repair or review]
-    G --> I[Bridge to office surfaces]
-    I --> C
-    E --> J{Founder decision needed?}
-    J -->|No| F
-    J -->|Yes| K[Founder review]
-    K --> F
+![MAYA Office loop](docs/assets/maya-office-loop.png)
 
-    classDef scan fill:#16213e,stroke:#5b8fd9,color:#f0f0f5
-    classDef work fill:#241d12,stroke:#e6a817,color:#f0f0f5
-    classDef proof fill:#13251d,stroke:#4caf7d,color:#f0f0f5
-    classDef stop fill:#2a1715,stroke:#d95f4b,color:#f0f0f5
-    class A scan
-    class B,C,D,E work
-    class F,G,I,K proof
-    class H,J stop
-```
+The system map is deliberately simple. Signals enter the office, staff work from the shared world, the evaluator checks the result, and verified artifacts flow back into the environment.
 
-For the larger animated version, open the [interactive system map](docs/system-map.html). It shows the same flow with moving signals, state colors, and the feedback loop kept visible.
+Open the [architecture overview](https://maya-platform.github.io/MAYA-Office/system-map.html) for the cleaner rendered version.
 
 ## What happens at each stage
 
@@ -74,7 +54,7 @@ For the larger animated version, open the [interactive system map](docs/system-m
 | `scripts/fleet_metrics_export.py` | Writes the sanitized public fleet snapshot |
 | `scripts/founder_meeting.py` | Raises a founder meeting only when decision items accumulate |
 | `docs/fleet.html` | Public scorecard with live metrics and agent results |
-| `docs/system-map.html` | Animated architecture map |
+| `docs/system-map.html` | Public architecture overview |
 
 ## The trust boundary
 
@@ -106,14 +86,14 @@ The current public snapshot was exported on **2026-09-13**.
 
 These numbers are a snapshot, not a promise. The public page reads the sanitized data export in [`docs/data/fleet-metrics.json`](docs/data/fleet-metrics.json), which the office refreshes rather than hand-editing.
 
-See the [live fleet scorecard](docs/fleet.html).
+See the [public fleet scorecard](https://maya-platform.github.io/MAYA-Office/fleet.html).
 
 ## Test progression
 
 The current evidence pack contains two ten-agent desktop passes:
 
-- **Desktop Rescue, 2026-09-11:** **90.0/100** average
-- **Deep Absorption, 2026-09-12:** **92.6/100** average
+- **Desktop Readiness Pass, 2026-09-11:** **90.0/100** average
+- **Research Absorption Pass, 2026-09-12:** **92.6/100** average
 - **Movement between those named passes:** **+2.6 points** across the fleet
 
 The wider fleet-level progression across three recorded averages was:
@@ -125,7 +105,7 @@ Pass 1   Pass 2   Pass 3
 
 The named pass averages and the wider trajectory are separate records. The latest pass did not move every lane in the same direction, which is exactly why the office keeps the individual numbers.
 
-| Staff lane | Desktop Rescue | Deep Absorption | Change |
+| Staff lane | Desktop Readiness Pass | Research Absorption Pass | Change |
 | --- | ---: | ---: | ---: |
 | Herald | 89 | 98 | +9 |
 | Shadow | 87 | 94 | +7 |
@@ -209,7 +189,7 @@ MAYA Office is a small public test of that idea. It treats initiative as part of
 
 The office is an active experiment. The current verdict is **PROMISING**, not proven. More real-world effect needs to be logged before the system earns a stronger claim.
 
-Built by 2ndNatureAi.
+Powered by 2ndNatureAi.
 
 ## License
 

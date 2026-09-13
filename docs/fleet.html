@@ -4,6 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="MAYA Office live fleet metrics, desktop pass scores, and staff progression.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MAYA Office | Autonomous AI Office">
+  <meta property="og:description" content="A public scorecard for agent initiative, receipts, and verified work. Powered by 2ndNatureAi.">
+  <meta property="og:url" content="https://maya-platform.github.io/MAYA-Office/fleet.html">
+  <meta property="og:image" content="https://maya-platform.github.io/MAYA-Office/assets/maya-office-social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://maya-platform.github.io/MAYA-Office/assets/maya-office-social-preview.png">
   <title>MAYA Office | Fleet Scorecard</title>
   <style>
     :root {
@@ -114,22 +123,22 @@
       <a href="test-results.md">Full test results</a>
       <a href="../README.md">Read the README</a>
     </nav>
-    <footer>MAYA Office is built by <a href="https://github.com/MAYA-Platform">2ndNatureAi</a>. Metrics are evidence, not theater dressing.</footer>
+    <footer>Powered by <a href="https://github.com/MAYA-Platform">2ndNatureAi</a>. Metrics are evidence, not theater dressing.</footer>
   </main>
 
   <script src="data/fleet-metrics.js"></script>
   <script>
     var TEST_SCORES_FALLBACK = {
       desktop_tests: [
-        {name:"Desktop Rescue",date:"2026-09-11",average_score:90.0,agents_tested:10,results:[
+        {name:"Desktop Readiness Pass",date:"2026-09-11",average_score:90.0,agents_tested:10,results:[
           {name:"specter",score:97,verdict:"Security exposure closed"},{name:"nova",score:94,verdict:"Stale metrics corrected"},{name:"chief",score:93,verdict:"Live footgun disarmed"},{name:"forge",score:92,verdict:"Dead app restored"},{name:"plumb",score:90,verdict:"Dead shortcut revived"},{name:"herald",score:89,verdict:"Open-items record reconciled"},{name:"recon",score:88,verdict:"Tap-cap hypothesis tested"},{name:"shadow",score:87,verdict:"Stale note dispositioned"},{name:"scribe",score:86,verdict:"Record aligned with evidence"},{name:"keira",score:84,verdict:"Public copy repaired"}
         ]},
-        {name:"Deep Absorption",date:"2026-09-12",average_score:92.6,agents_tested:10,results:[
+        {name:"Research Absorption Pass",date:"2026-09-12",average_score:92.6,agents_tested:10,results:[
           {name:"herald",score:98,verdict:"Trust-calibration experiment reproduced"},{name:"specter",score:96,verdict:"Security paper and results verified"},{name:"forge",score:95,verdict:"Tests run and doctrine extracted"},{name:"shadow",score:94,verdict:"Agent economics mapped"},{name:"scribe",score:93,verdict:"Memory roadmap rewritten"},{name:"chief",score:92,verdict:"Escalation policy upgraded"},{name:"plumb",score:91,verdict:"Safety finding absorbed"},{name:"nova",score:90,verdict:"Design law created with gates"},{name:"keira",score:89,verdict:"AI-labeling evidence captured"},{name:"recon",score:88,verdict:"Two security patterns checked"}
         ]}
       ],
       agent_progression:[
-        {name:"herald",desktop_rescue:89,deep_absorption:98,delta:9},{name:"shadow",desktop_rescue:87,deep_absorption:94,delta:7},{name:"scribe",desktop_rescue:86,deep_absorption:93,delta:7},{name:"keira",desktop_rescue:84,deep_absorption:89,delta:5},{name:"forge",desktop_rescue:92,deep_absorption:95,delta:3},{name:"plumb",desktop_rescue:90,deep_absorption:91,delta:1},{name:"recon",desktop_rescue:88,deep_absorption:88,delta:0},{name:"specter",desktop_rescue:97,deep_absorption:96,delta:-1},{name:"chief",desktop_rescue:93,deep_absorption:92,delta:-1},{name:"nova",desktop_rescue:94,deep_absorption:90,delta:-4}
+        {name:"herald",desktop_readiness:89,research_absorption:98,delta:9},{name:"shadow",desktop_readiness:87,research_absorption:94,delta:7},{name:"scribe",desktop_readiness:86,research_absorption:93,delta:7},{name:"keira",desktop_readiness:84,research_absorption:89,delta:5},{name:"forge",desktop_readiness:92,research_absorption:95,delta:3},{name:"plumb",desktop_readiness:90,research_absorption:91,delta:1},{name:"recon",desktop_readiness:88,research_absorption:88,delta:0},{name:"specter",desktop_readiness:97,research_absorption:96,delta:-1},{name:"chief",desktop_readiness:93,research_absorption:92,delta:-1},{name:"nova",desktop_readiness:94,research_absorption:90,delta:-4}
       ],
       fleet_progression:[{label:"Pass 1",score:88.0},{label:"Pass 2",score:91.0},{label:"Pass 3",score:93.3}]
     };
@@ -151,7 +160,7 @@
         var delta = Number(a.delta) || 0;
         var deltaClass = delta < 0 ? 'down' : delta === 0 ? 'flat' : '';
         var deltaText = delta > 0 ? '+' + delta : String(delta);
-        return '<div class="agent-row"><span class="agent-name">' + safe(a.name) + '</span><span class="agent-score">' + safe(a.desktop_rescue) + ' → <strong>' + safe(a.deep_absorption) + '</strong></span><span class="agent-delta ' + deltaClass + '">' + safe(deltaText) + '</span><span class="agent-bar"><span style="width:' + Math.max(0, Math.min(100, a.deep_absorption)) + '%"></span></span><span class="agent-result">Latest pass result</span></div>';
+        return '<div class="agent-row"><span class="agent-name">' + safe(a.name) + '</span><span class="agent-score">' + safe(a.desktop_readiness) + ' → <strong>' + safe(a.research_absorption) + '</strong></span><span class="agent-delta ' + deltaClass + '">' + safe(deltaText) + '</span><span class="agent-bar"><span style="width:' + Math.max(0, Math.min(100, a.research_absorption)) + '%"></span></span><span class="agent-result">Latest pass result</span></div>';
       }).join("");
       var steps = progression.map(function(p) {
         return '<div class="step"><div class="bar"><span style="--height:' + Math.max(8, p.score) + '%"></span></div><strong>' + safe(p.score) + '</strong><small>' + safe(p.label) + '</small></div>';
@@ -160,7 +169,7 @@
         var top = (p.results || []).slice(0, 3).map(function(r) { return '<div class="mini-row"><strong>' + safe(r.name) + '</strong><span>' + safe(r.score) + '</span></div>'; }).join('');
         return '<article class="test-card"><div class="label">' + safe(p.date) + ' · ' + safe(p.agents_tested) + ' lanes</div><h3>' + safe(p.name) + '</h3><div class="avg">' + safe(p.average_score) + '<span class="note"> / 100 average</span></div><div class="mini-list">' + top + '</div></article>';
       }).join('');
-      var top = metrics.top_artifact ? '<section class="card top"><div class="label">Top artifact of the day</div><div class="top-title">' + safe(metrics.top_artifact.title) + '</div><div class="top-meta">Built by ' + safe(metrics.top_artifact.agent) + '</div></section>' : '';
+      var top = metrics.top_artifact ? '<section class="card top"><div class="label">Featured artifact</div><div class="top-title">' + safe(metrics.top_artifact.title) + '</div><div class="top-meta">Produced by ' + safe(metrics.top_artifact.agent) + '</div></section>' : '';
       c.innerHTML =
         '<section class="card wide score"><div class="value good">' + safe(metrics.efficiency_score) + '</div><div class="score-copy"><div class="band good">' + safe(metrics.verdict_band) + '</div><div class="note">Efficiency score on day ' + safe(metrics.experiment_days) + ' of the experiment.</div><div class="bar"><span style="width:' + Math.min(100, Math.max(0, Number(metrics.efficiency_score) || 0)) + '%"></span></div></div></section>' +
         metricCard('Artifacts', metrics.artifacts_total, metrics.artifacts_per_day + ' per day', 'gold') +
@@ -169,7 +178,7 @@
         metricCard('Inheritance', metrics.inheritance_pct + '%', 'built on earlier artifacts', 'neutral') +
         '<section class="card wide"><div class="section-head"><h2>Fleet progression</h2><p>Three recorded fleet averages</p></div><div class="progression">' + steps + '</div></section>' +
         '<section class="card wide"><div class="section-head"><h2>Two latest desktop passes</h2><p>Named test averages, kept separate from the fleet trajectory</p></div><div class="test-grid">' + passCards + '</div></section>' +
-        '<section class="card wide"><div class="section-head"><h2>Individual progression</h2><p>Desktop Rescue → Deep Absorption · latest average ' + safe(latest.average_score) + '</p></div><div class="agent-list">' + rows + '</div><div class="note">Positive movement is green, flat is blue, and a lower score is red. A score is a work signal, not a personality ranking.</div></section>' +
+        '<section class="card wide"><div class="section-head"><h2>Individual progression</h2><p>Desktop Readiness Pass → Research Absorption Pass · latest average ' + safe(latest.average_score) + '</p></div><div class="agent-list">' + rows + '</div><div class="note">Positive movement is green, flat is blue, and a lower score is red. A score is a work signal, not a personality ranking.</div></section>' +
         '<div class="split wide"><section class="card"><div class="label">Initiatives picked up</div><div class="value neutral">' + safe(metrics.initiatives_picked_up) + '<span style="font-size:16px;color:var(--muted)"> / ' + safe(metrics.initiatives_filed) + '</span></div><div class="note">self-filed work accepted by staff</div></section>' + metricCard('Recorded cost', '$' + metrics.cost_total_usd, '$' + metrics.cost_per_artifact_usd + ' per artifact', 'gold') + '</div>' + top +
         '<section class="card wide"><h2>The honest read</h2><p class="sub">The office is producing and the independent pass rate is high. The current score remains PROMISING because logged real-world effect is still the missing proof. Output is not impact, and a good chart does not get to blur that distinction.</p><div class="note">Snapshot updated ' + safe(metrics.updated) + ' UTC.</div></section>';
     }
