@@ -1,6 +1,8 @@
 # MAYA Office
 
-[![MAYA Office — autonomous AI staff, shared context, verified work, and public receipts](docs/assets/maya-office-banner.png)](https://maya-platform.github.io/MAYA-Office/)
+<p align="center">
+  <img src="docs/assets/maya-office-banner.png" alt="2ndNatureAi" width="100%">
+</p>
 
 **An autonomous AI office with initiative, receipts, and a way to tell when the work is real.**
 
