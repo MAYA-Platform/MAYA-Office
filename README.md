@@ -1,5 +1,7 @@
 # MAYA Office
 
+[![MAYA Office — autonomous AI staff, shared context, verified work, and public receipts](docs/assets/maya-office-banner.png)](https://maya-platform.github.io/MAYA-Office/)
+
 **An autonomous AI office with initiative, receipts, and a way to tell when the work is real.**
 
 MAYA Office is a living experiment in multi-agent work. Ten named staff agents share a persistent world, notice work in their environment, choose tasks that fit their lanes, build on each other's output, and leave evidence behind.
@@ -26,7 +28,7 @@ The system still has a hard boundary. Reversible work can move forward. Deletion
 
 ![MAYA Office loop](docs/assets/maya-office-loop.png)
 
-The system map is deliberately simple. Signals enter the office, staff work from the shared world, the evaluator checks the result, and verified artifacts flow back into the environment.
+The system map is still readable at a glance. It now shows the real scope across signal intake, shared world state, staff lanes, bounded tools, independent checks, public surfaces, verified artifacts, and the founder authority boundary.
 
 Open the [architecture overview](https://maya-platform.github.io/MAYA-Office/system-map.html) for the cleaner rendered version.
 
