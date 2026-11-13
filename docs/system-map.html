@@ -24,6 +24,13 @@
     .intro { max-width:780px; margin:0 0 26px; color:var(--muted); font-size:17px; }
     .hero { border:1px solid var(--line); border-radius:22px; overflow:hidden; background:rgba(23,20,18,.78); box-shadow:0 22px 60px rgba(0,0,0,.28); }
     .hero img { display:block; width:100%; height:auto; }
+    .diagram-scroll { overflow-x:auto; }
+    .diagram-scroll:focus-visible, summary:focus-visible, a:focus-visible { outline:3px solid #eac38f; outline-offset:3px; }
+    .diagram-help { display:none; padding:0 18px; color:#d6c5af; font-size:13px; }
+    .hero > p, .hero details { margin:16px 20px; color:#d0c2b0; }
+    .hero a { color:#eac38f; }
+    .hero details { line-height:1.7; } .hero summary { cursor:pointer; color:#eed0a8; }
+    .hero ol { padding-left:24px; }
     .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:13px; margin-top:16px; }
     .card { padding:18px; border:1px solid var(--line); border-radius:15px; background:rgba(23,20,18,.82); }
     .card strong { display:block; margin-bottom:5px; font-size:14px; }
@@ -34,7 +41,7 @@
     nav { display:flex; flex-wrap:wrap; gap:18px; margin-top:24px; }
     nav a { font-size:13px; }
     footer { margin-top:30px; color:var(--muted); font-size:12px; text-align:center; }
-    @media (max-width:760px) { .wrap { width:min(100% - 24px,640px); padding-top:28px; } .grid { grid-template-columns:1fr; } }
+    @media (max-width:760px) { .wrap { width:min(100% - 24px,640px); padding-top:28px; } .grid { grid-template-columns:1fr; } .diagram-help { display:block; } .diagram-scroll img { min-width:850px; } }
   </style>
 </head>
 <body>
@@ -43,8 +50,22 @@
     <h1>Architecture overview</h1>
     <p class="intro">This diagram shows the intended loop: signals enter shared state, staff use bounded tools, and artifacts receive selected automated checks. It does not establish the current deployment or independently verify outcomes.</p>
     <section class="hero" aria-label="MAYA Office system loop">
-      <img src="assets/maya-office-loop.png" alt="Intended MAYA Office loop from signal to shared state, staff work, evaluator, and artifact">
-      <p>Diagram labels describe a design, not verified deployment behavior. The ledger also records FAIL and UNVERIFIABLE artifacts; a PASS reflects limited checks rather than an independently verified outcome.</p>
+      <p class="diagram-help">Scroll sideways to explore the diagram, or open its text description below.</p>
+      <div class="diagram-scroll" role="region" tabindex="0" aria-label="Illustrative office flow diagram; scroll horizontally to explore">
+        <img src="assets/maya-office-shared-flow.svg" alt="Illustrative flow: source inspection, staff work, limited checks, and eligible ledger records. Sensitive actions are intended for founder review.">
+      </div>
+      <p>This is an illustration, not verified deployment behavior. A PASS reflects limited checks rather than an independently verified outcome.</p>
+      <details>
+        <summary>Read the flow as text</summary>
+        <ol>
+          <li>Inspect source material for leads; the initiative scanner can register selected findings and write local state.</li>
+          <li>Staff can observe available context and prepare work or proposals within their scope.</li>
+          <li>File-type-specific automated checks assess selected signals; they do not prove safety or real-world correctness.</li>
+          <li>Eligible registrations record PASS, FAIL or UNVERIFIABLE outcomes in the ledger. An evaluation lock can refuse a registration.</li>
+          <li>Recorded context can inform later work. Deletion, secrets, broad changes and financial actions are intended for founder review; verify actual permissions in each deployment.</li>
+        </ol>
+      </details>
+      <p>Source: <a href="https://github.com/MAYA-Platform/MAYA-Office/blob/main/scripts/swarm_initiatives.py">initiative scanner</a> and <a href="https://github.com/MAYA-Platform/MAYA-Office/blob/main/scripts/swarm_bench.py">ledger and evaluators</a>. These files describe implementation, not proof of current operation.</p>
     </section>
     <section class="grid" aria-label="Architecture principles">
       <article class="card blue"><strong>Signals become work</strong><span>The scanner reads source material, then registers selected initiatives and writes scanner state.</span></article>

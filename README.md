@@ -28,7 +28,7 @@ The system still has a hard boundary. Reversible work can move forward. Deletion
 
 ## The loop
 
-![MAYA Office loop](docs/assets/maya-office-loop.png)
+![Illustrative MAYA Office flow: source inspection, staff work, limited checks, and eligible ledger records; sensitive actions are intended for founder review.](docs/assets/maya-office-shared-flow.svg)
 
 The system map illustrates the intended flow across signal intake, shared world state, staff lanes, bounded tools, automated checks, public surfaces, artifacts, and the founder authority boundary. It is an architecture overview, not evidence of the currently running configuration.
 
