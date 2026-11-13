@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">MAYA Office: illustrative shared-work flow</title>
+  <desc id="desc">Four stages show source inspection, staff work, limited checks and ledger records. A feedback arrow returns the recorded work to shared context. A separate authority band describes intended founder review for sensitive actions. This is an illustration, not proof of a running deployment.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#24211d"/><stop offset="1" stop-color="#101716"/></linearGradient>
+    <linearGradient id="glass" x2="1" y2="1"><stop stop-color="#3d3630"/><stop offset="1" stop-color="#222522"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#e4b17c"/></marker>
+  </defs>
+  <rect x="1" y="1" width="1198" height="618" rx="20" fill="url(#bg)" stroke="#665340"/>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="42" y="53" fill="#e4b17c" font-size="13" font-weight="700" letter-spacing="2.5">MAYA OFFICE  /  ILLUSTRATIVE ARCHITECTURE</text>
+    <text x="42" y="95" fill="#f2ece0" font-size="30" font-weight="600">Work moves through shared context</text>
+    <text x="42" y="123" fill="#c9bdb0" font-size="15">A design view, not a claim about the current deployment or independently verified outcomes.</text>
+    <g fill="url(#glass)" stroke="#82684d" stroke-width="1.1">
+      <rect x="42" y="167" width="256" height="230" rx="8"/><rect x="328" y="167" width="256" height="230" rx="8"/>
+      <rect x="614" y="167" width="256" height="230" rx="8"/><rect x="900" y="167" width="256" height="230" rx="8"/>
+    </g>
+    <g fill="none" stroke="#e4b17c" stroke-width="1.6" marker-end="url(#arrow)"><path d="M298 278H322"/><path d="M584 278H608"/><path d="M870 278H894"/></g>
+    <g font-size="12" fill="#dfad79" font-weight="700" letter-spacing="1.7"><text x="64" y="198">01  DISCOVER</text><text x="350" y="198">02  WORK</text><text x="636" y="198">03  CHECK</text><text x="922" y="198">04  RECORD</text></g>
+    <g font-size="20" fill="#f2ece0" font-weight="600"><text x="64" y="234">Source inspection</text><text x="350" y="234">Staff activity</text><text x="636" y="234">Limited checks</text><text x="922" y="234">Shared ledger</text></g>
+    <g font-size="15" fill="#d1c6b9">
+      <text x="64" y="267"><tspan x="64">Scan sources for leads;</tspan><tspan x="64" dy="23">selected initiatives write</tspan><tspan x="64" dy="23">local records and state.</tspan></text>
+      <text x="350" y="267"><tspan x="350">Agents can observe context</tspan><tspan x="350" dy="23">and prepare work or</tspan><tspan x="350" dy="23">proposals within scope.</tspan></text>
+      <text x="636" y="267"><tspan x="636">File-type checks assess</tspan><tspan x="636" dy="23">selected signals, not</tspan><tspan x="636" dy="23">real-world correctness.</tspan></text>
+      <text x="922" y="267"><tspan x="922">Eligible registrations</tspan><tspan x="922" dy="23">record PASS, FAIL or</tspan><tspan x="922" dy="23">UNVERIFIABLE results.</tspan></text>
+    </g>
+    <g fill="none" stroke="#a5ccc0" stroke-width="1.2"><path d="M68 346l18-10 18 10-18 10z M68 346v20l18 10v-20m18-10v20l-18 10"/><path d="M354 346l18-10 18 10-18 10z M354 346v20l18 10v-20m18-10v20l-18 10"/><path d="M640 346l18-10 18 10-18 10z M640 346v20l18 10v-20m18-10v20l-18 10"/><path d="M926 346l18-10 18 10-18 10z M926 346v20l18 10v-20m18-10v20l-18 10"/></g>
+    <path d="M1028 399v19H170v-19" fill="none" stroke="#9ec8bd" stroke-width="1.4" marker-end="url(#arrow)"/>
+    <rect x="405" y="405" width="388" height="25" rx="4" fill="#1c2925"/>
+    <text x="599" y="422" fill="#bfdad0" font-size="13" text-anchor="middle">Recorded context can inform later work</text>
+    <rect x="42" y="459" width="1114" height="105" rx="8" fill="#2b241d" stroke="#9a744b"/>
+    <text x="64" y="489" fill="#ebbd8d" font-size="13" font-weight="700" letter-spacing="1.4">INTENDED AUTHORITY BOUNDARY</text>
+    <text x="64" y="517" fill="#f2ece0" font-size="15">Deletion, secrets, broad changes and financial actions are intended for founder review.</text>
+    <text x="64" y="542" fill="#d1c6b9" font-size="14">Confirm actual permissions and enforcement in each deployment. A PASS is not proof of safety or impact.</text>
+    <text x="42" y="593" fill="#bdb2a7" font-size="12">The ledger can refuse a registration during an evaluation lock; the diagram omits operational details.</text>
+  </g>
+</svg>
