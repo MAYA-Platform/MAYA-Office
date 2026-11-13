@@ -144,8 +144,13 @@ The scripts are standard-library Python tools. Start with their built-in help:
 python scripts/swarm_bench.py --help
 python scripts/swarm_initiatives.py --help
 python scripts/swarm_efficiency.py --help
-python scripts/fleet_metrics_export.py --help
 ```
+
+Do not use `--help` with `fleet_metrics_export.py`: it does not have a help
+mode. It writes exported metrics and, unless `--no-push` is supplied, can
+stage and commit the export and push to `origin/main`. Read the script and
+review the data and destination before running it. Even with `--no-push`, it
+writes the local export files.
 
 The public pages can be served locally with any static file server. For example:
 
