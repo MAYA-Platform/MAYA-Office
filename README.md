@@ -148,9 +148,10 @@ python scripts/swarm_efficiency.py --help
 
 Do not use `--help` with `fleet_metrics_export.py`: it does not have a help
 mode. It writes exported metrics and, unless `--no-push` is supplied, can
-stage and commit the export and push to `origin/main`. Read the script and
-review the data and destination before running it. Even with `--no-push`, it
-writes the local export files.
+stage and commit the export and push to `origin/main`. Its commit can include
+any other changes already staged in the checkout. Use an isolated clean checkout,
+read the script, and review the data and destination before running it. Even
+with `--no-push`, it writes the local export files.
 
 The public pages can be served locally with any static file server. For example:
 
