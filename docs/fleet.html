@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="MAYA Office live fleet metrics, desktop pass scores, and staff progression.">
+  <meta name="description" content="A historical MAYA Office metrics snapshot and reported pass scores.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="MAYA Office | Autonomous AI Office">
-  <meta property="og:description" content="A public scorecard for agent initiative, receipts, and verified work. Powered by 2ndNatureAi.">
+  <meta property="og:description" content="A historical scorecard of reported artifacts, checks, and staff assessments. Powered by 2ndNatureAi.">
   <meta property="og:url" content="https://maya-platform.github.io/MAYA-Office/fleet.html">
   <meta property="og:image" content="https://maya-platform.github.io/MAYA-Office/assets/maya-office-social-preview.png">
   <meta property="og:image:width" content="1200">
@@ -109,19 +109,19 @@
       <div>
         <div class="eyebrow">2ndNatureAi / MAYA Office</div>
         <h1>Fleet scorecard</h1>
-        <p class="sub">A public view of what the office produced, what an independent check accepted, and how each lane moved between the latest two passes.</p>
+        <p class="sub">A historical export of recorded artifacts, automated check results, and reported staff assessments. It does not establish current activity or independently verified outcomes.</p>
       </div>
-      <div class="live">Snapshot refreshes daily</div>
+      <div class="live">Historical snapshot</div>
     </header>
 
     <div id="content" class="grid">
-      <section class="card wide error">Loading the current office snapshot.</section>
+      <section class="card wide error">Loading the exported office snapshot.</section>
     </div>
 
     <nav aria-label="MAYA Office pages">
       <a href="system-map.html">System map</a>
       <a href="test-results.md">Full test results</a>
-      <a href="../README.md">Read the README</a>
+      <a href="https://github.com/MAYA-Platform/MAYA-Office#readme">Read the README</a>
     </nav>
     <footer>Powered by <a href="https://github.com/MAYA-Platform">2ndNatureAi</a>. Metrics are evidence, not theater dressing.</footer>
   </main>
@@ -173,14 +173,14 @@
       c.innerHTML =
         '<section class="card wide score"><div class="value good">' + safe(metrics.efficiency_score) + '</div><div class="score-copy"><div class="band good">' + safe(metrics.verdict_band) + '</div><div class="note">Efficiency score on day ' + safe(metrics.experiment_days) + ' of the experiment.</div><div class="bar"><span style="width:' + Math.min(100, Math.max(0, Number(metrics.efficiency_score) || 0)) + '%"></span></div></div></section>' +
         metricCard('Artifacts', metrics.artifacts_total, metrics.artifacts_per_day + ' per day', 'gold') +
-        metricCard('World-verified pass', metrics.verified_pass_pct + '%', 'deterministic evaluator', 'good') +
-        metricCard('Autonomy rate', metrics.autonomy_pct + '%', 'work initiated by staff', 'good') +
+        metricCard('Artifact-check pass', metrics.verified_pass_pct + '%', 'selected checks; not verified impact', 'good') +
+        metricCard('Staff-registered share', metrics.autonomy_pct + '%', 'historical autonomy proxy, not proof of initiative', 'good') +
         metricCard('Inheritance', metrics.inheritance_pct + '%', 'built on earlier artifacts', 'neutral') +
         '<section class="card wide"><div class="section-head"><h2>Fleet progression</h2><p>Three recorded fleet averages</p></div><div class="progression">' + steps + '</div></section>' +
         '<section class="card wide"><div class="section-head"><h2>Two latest desktop passes</h2><p>Named test averages, kept separate from the fleet trajectory</p></div><div class="test-grid">' + passCards + '</div></section>' +
         '<section class="card wide"><div class="section-head"><h2>Individual progression</h2><p>Desktop Readiness Pass → Research Absorption Pass · latest average ' + safe(latest.average_score) + '</p></div><div class="agent-list">' + rows + '</div><div class="note">Positive movement is green, flat is blue, and a lower score is red. A score is a work signal, not a personality ranking.</div></section>' +
-        '<div class="split wide"><section class="card"><div class="label">Initiatives picked up</div><div class="value neutral">' + safe(metrics.initiatives_picked_up) + '<span style="font-size:16px;color:var(--muted)"> / ' + safe(metrics.initiatives_filed) + '</span></div><div class="note">self-filed work accepted by staff</div></section>' + metricCard('Recorded cost', '$' + metrics.cost_total_usd, '$' + metrics.cost_per_artifact_usd + ' per artifact', 'gold') + '</div>' + top +
-        '<section class="card wide"><h2>The honest read</h2><p class="sub">The office is producing and the independent pass rate is high. The current score remains PROMISING because logged real-world effect is still the missing proof. Output is not impact, and a good chart does not get to blur that distinction.</p><div class="note">Snapshot updated ' + safe(metrics.updated) + ' UTC.</div></section>';
+        '<div class="split wide"><section class="card"><div class="label">Initiatives with children</div><div class="value neutral">' + safe(metrics.initiatives_picked_up) + '<span style="font-size:16px;color:var(--muted)"> / ' + safe(metrics.initiatives_filed) + '</span></div><div class="note">recorded initiatives with a child artifact</div></section>' + metricCard('Modeled cost', '$' + metrics.cost_total_usd, '$' + metrics.cost_per_artifact_usd + ' estimated per artifact; not billing', 'gold') + '</div>' + top +
+        '<section class="card wide"><h2>Reading the evidence</h2><p class="sub">This export records limited artifact checks and internally reported scores. A check pass does not prove useful or secure work, and a score does not establish real-world impact. The export cannot establish current office activity.</p><div class="note">Export dated ' + safe(metrics.updated) + '.</div></section>';
     }
     Promise.all([
       fetch('data/fleet-metrics.json', {cache:'no-store'}).then(function(r) { if (!r.ok) throw new Error('metrics'); return r.json(); }),
