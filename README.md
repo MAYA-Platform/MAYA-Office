@@ -36,7 +36,7 @@ Open the [architecture overview](https://maya-platform.github.io/MAYA-Office/sys
 
 ## What happens at each stage
 
-1. **The initiative scanner** checks the working environment for useful work such as stale records, duplicate material, unfinished markers, or oversized artifacts. The scan is read-only.
+1. **The initiative scanner** inspects source material for useful work such as stale records, duplicate material, unfinished markers, or oversized artifacts. It reads those sources without modifying them, then registers selected initiatives and writes local scanner state.
 2. **The Swarm Bench** records an initiative or artifact in a linked ledger. Each entry carries identity, sequence, timestamps, parent relationships, and tamper evidence.
 3. **Staff observe before they act.** The current world state is available before a turn, so agents can reuse what is already there and develop distinct lanes.
 4. **Staff work through bounded tools.** They can research, inspect GitHub, triage email without sending or deleting, write to their own desk, and stage code proposals for review.
@@ -49,7 +49,7 @@ Open the [architecture overview](https://maya-platform.github.io/MAYA-Office/sys
 | File | Role |
 | --- | --- |
 | `scripts/swarm_bench.py` | Chain-linked artifact ledger and deterministic evaluators |
-| `scripts/swarm_initiatives.py` | Read-only discovery of organic work in the environment |
+| `scripts/swarm_initiatives.py` | Source inspection and local registration of discovered initiatives |
 | `scripts/swarm_bridge.py` | Moves world state into the office's connected surfaces |
 | `scripts/staff_workspace_tools.py` | Bounded staff tools for research, notes, triage, and proposals |
 | `scripts/swarm_efficiency.py` | Efficiency score, verdict bands, cost, and value tracking |
