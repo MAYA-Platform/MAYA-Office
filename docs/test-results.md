@@ -2,7 +2,7 @@
 
 ## The short version
 
-The office has two useful ten-agent passes in the current public evidence pack.
+The public record reports two internally scored ten-agent passes. The record does not provide enough evidence to independently reproduce the assessments or verify each reported outcome.
 
 - **Desktop Readiness Pass, 2026-09-11:** 90.0/100 average
 - **Research Absorption Pass, 2026-09-12:** 92.6/100 average
@@ -36,7 +36,7 @@ A lower second score is not automatically a failure. It can mean the second task
 **Agents tested:** 10  
 **Average:** 90.0/100
 
-Each staff lane received a real founder-desktop item to investigate. The work was scored against evidence, judgment, lane fit, and whether the agent respected scope. A high score means the work produced a useful and verifiable outcome. It does not mean the agent is more valuable as a person or that the lane is finished forever.
+The record describes founder-desktop items assigned to staff and scores based on evidence, judgment, lane fit, and scope. A high score is a recorded assessment, not independent proof of usefulness or a verified outcome. The following descriptions are reported outcomes.
 
 - **Specter, 97.** Closed a real network exposure in the security lane.
 - **Nova, 94.** Corrected stale metrics on a founder-facing surface.
@@ -55,7 +55,7 @@ Each staff lane received a real founder-desktop item to investigate. The work wa
 **Agents tested:** 10  
 **Average:** 92.6/100
 
-This pass asked the staff to absorb external patterns, reproduce claims where possible, and turn useful findings into MAYA doctrine or implementation direction.
+The record describes a pass asking staff to absorb external patterns, reproduce claims where possible, and turn findings into MAYA doctrine or implementation direction. The following descriptions are reported outcomes, not independently verified here.
 
 - **Herald, 98.** Reproduced the trust-calibration experiment.
 - **Specter, 96.** Verified a security paper and its reported results.
@@ -68,20 +68,18 @@ This pass asked the staff to absorb external patterns, reproduce claims where po
 - **Keira, 89.** Captured evidence for an AI-labeling policy.
 - **Recon, 88.** Checked two security patterns.
 
-## What the passes proved
+## What the record reports
 
-- Staff can choose useful work from a shared environment instead of waiting for identical assignments.
-- The strongest work was not cosmetic. It surfaced a network exposure, a destructive update launcher, stale public numbers, dead launch paths, and records that no longer matched reality.
-- The second pass showed measurable movement in most lanes, while also exposing three lower scores that need more context rather than a victory lap.
-- Staff stayed within lane boundaries. Security work did not become unauthorized attack activity, and cleanup work preserved originals instead of deleting them.
-- Scores are useful when they point back to changed artifacts and written evidence.
+- The record attributes work to ten lanes in each pass and describes their assigned work and reported outputs.
+- The second recorded scores differ for most lanes; three are lower. These are differences in assessments, not an independently established performance change.
+- The record describes scope boundaries, but does not provide enough evidence here to independently verify every action or outcome.
 
 ## What the passes did not prove
 
 - Two passes do not prove long-term autonomous productivity.
 - A score does not prove real-world effect unless that effect is logged separately.
 - The wider fleet progression does not prove that every lane improved at the same rate.
-- The current result is not an INVEST verdict. The office still needs sustained efficiency and a stronger value ledger.
+- The historical snapshot does not establish a current INVEST verdict. The published criteria call for sustained efficiency and a stronger value ledger.
 
 ## Source record
 
